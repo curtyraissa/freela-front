@@ -7,7 +7,7 @@ export const PassagemPage = () => {
   return (
     <>
       <Logo />
-      <Filtro />
+      <Filtro placeholder="Filtrar passagem" />
       <PassagemContainer>
         <Text>Passagens para CIDADE:</Text>
         <Card />
