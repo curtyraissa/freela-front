@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+<h1 align="center">Agência de Viagens - Front React </h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+✅ Requisitos
 
-## Available Scripts
+- Geral
+    - [ ]  A aplicação deve ser implementada com as tecnologias trabalhadas durante a formação: Node + Express (back-end), Postgres (persistência) e React (front-end).
+    - [ ]  Versionamento usando Git é obrigatório, crie um repositório público no seu perfil do GitHub para cada um dos repositórios (front-end e back-end).
+        - [ ]  Faça commits a cada funcionalidade implementada.
+    - [ ]  A estrutura de arquivos e pastas do projeto deve seguir o padrão aprendido durante a formação, com as camadas `controllers`, `routers`, `middlewares` e `schemas` (onde for necessário).
+    - [ ]  Também é **obrigatória** a presença da camada `repository`.
+- Deploy
+    - [ ]  Faça o deploy da sua aplicação (back-end, front-end e banco de dados). Essa etapa é **obrigatória** para permitir a correção do projeto.
+    - [ ]  Utilize o Render para o deploy da API e a Vercel para deploy do front.
+- **Proposta 1:** Agência de Viagens ✈️
+    - Local onde o usuário consiga escolher sua cidade de destino à partir de uma lista pré-determinada de cidades.
+    - Uma vez escolhido o destino, deverão haver duas listas: a de passagens e de hospedagens naquele destino.
+    - Em ambas as listas, deve ser possível filtrar as passagens/acomodações, pelo menos, por uma faixa de preços (mínimo e máximo).
+    - Ao clicar em uma passagem/hospedagem, deve abrir exibir todos os seus detalhes:
+        - Passagens: data e horário de partida e chegada, cidade de origem, cidade de destino, preço e companhia aérea.
+        - Hospedagens: nome do hotel, preço da diária e comodidades disponíveis.
+    - A API deve possuir endpoints para adicionar as viagens e passagens, mas não é obrigatório ter essa seção administrativa no front.
 
-In the project directory, you can run:
+<hr/>
 
-### `npm start`
+## 🛠 &nbsp;Skills
+<div align="center">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="40" width="52" alt="react logo"  />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" width="52" alt="js logo"  />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height="40" width="52" alt="html5 logo"  />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="40" width="52" alt="css3 logo"  />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" height="40" width="52" alt="figma logo"   />        
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" height="40" width="52" alt="git logo"  />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" height="40" width="52" alt="github logo" />                                   
+</div>
+<hr/>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 &nbsp;Links
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [Deploy](https://projeto18-freela-front.vercel.app/).<br/>
 
-### `npm test`
+<hr/>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 💬 &nbsp;Contact
+<img align="left" src="https://avatars.githubusercontent.com/curtyraissa?size=100">
 
-### `npm run build`
+Feito por [Raissa Curty](https://github.com/curtyraissa)!
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<a href="https://www.linkedin.com/in/raissa-curty/" target="_blank">
+    <img style="border-radius:50%;" src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/linkedin/default.svg" width="52" height="40" alt="linkedin logo"  />
+  </a>&nbsp;
