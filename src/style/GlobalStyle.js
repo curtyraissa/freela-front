@@ -10,13 +10,17 @@ const GlobalStyle = createGlobalStyle`
         outline: none;
         border: none;
         border-radius: 5px;
-        background-color: #120a8f;
+        background-color: #ffb000;
         font-size: 20px;
         font-weight: 600;
-        color: #fff;
+        color: #ffffff;
         cursor: pointer;
         width: 100%;
         padding: 12px;
+        :hover{
+            background: #ffb900;
+            color: #eeeeee;
+        }
     }
     h1 {
         font-weight: 700;
@@ -28,7 +32,7 @@ const GlobalStyle = createGlobalStyle`
         width: calc(100% - 30px);
         border-radius: 5px;
         outline: none;
-        border: 1px solid #ccc;
+        border: 1px solid #cccccc;
         padding: 15px;
         margin: 1px;
         :focus {

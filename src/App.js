@@ -21,8 +21,12 @@ export default function App() {
 }
 
 const PagesContainer = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: #120a8f;
   width: calc(100vw - 50px);
-  max-height: 100vh;
+  height: calc(100vh - 50px);
   padding: 25px;
 `;
