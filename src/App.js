@@ -4,6 +4,7 @@ import ErrorPage from "./pages/ErrorPage";
 import { HomePage } from "./pages/HomePage";
 import { PassagemPage } from "./pages/PassagemPage";
 import { HospedagemPage } from "./pages/HospedagemPage";
+import { DetalhePassagemPage } from "./pages/DetalhePassagemPage";
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/passagem" element={<PassagemPage />} />
+          <Route path="/detalhe-passagem" element={<DetalhePassagemPage />} />
           <Route path="/hospedagem" element={<HospedagemPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
