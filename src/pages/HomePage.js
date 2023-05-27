@@ -1,14 +1,24 @@
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import axios from "axios";
 import Logo from "../components/Logo";
 import Passo from "../components/Passo";
 
-const objSelect = [
-  { value: "riodejaneiro", label: "Rio de Janeiro" },
-  { value: "saopaulo", label: "São Paulo" },
-  { value: "fortaleza", label: "Fortaleza" },
-];
-
 export const HomePage = () => {
+  const [cidade, setCidade] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/cidades`)
+      .then((res) => {
+        setCidade(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+      });
+  }, []);
+
   return (
     <>
       <Logo />
@@ -16,18 +26,17 @@ export const HomePage = () => {
         <form>
           <Label>Selecione a sua cidade de destino:</Label>
           <Select>
-            {objSelect.map((item, index) => {
-              return (
-                <option key={index} value={item.value}>
-                  {item.label}
-                </option>
-              );
-            })}
+            <option value="">Selecione uma cidade</option>
+            {cidade.map((item) => (
+              <option key={item.id} value={item.nome}>
+                {item.nome}
+              </option>
+            ))}
           </Select>
           <button type="submit">Buscar</button>
         </form>
       </HomeContainer>
-        <Passo />
+      <Passo />
     </>
   );
 };
