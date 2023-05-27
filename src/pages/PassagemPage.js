@@ -54,11 +54,9 @@ const Bloco = styled.div`
   display: flex;
   justify-content: center;
   gap: 20px;
-
   @media (max-width: 600px) {
     flex-direction: column;
   }
-
 `;
 
 const Search = styled.input`

@@ -1,20 +1,62 @@
 import styled from "styled-components";
 import Logo from "../components/Logo";
 import CardHospedagem from "../components/CardHospedagem";
-import Filtro from "../components/Filtro";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export const HospedagemPage = () => {
+  const [hospedagem, setHospedagem] = useState([]);
+
+  useEffect(() => {
+    axios
+      // .get(`${process.env.REACT_APP_API_URL}/hospedagens/cidade/:cidade_id`)
+      .get(`${process.env.REACT_APP_API_URL}/hospedagens/cidade/1`)
+      .then((res) => {
+        setHospedagem(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+      });
+  }, []);
+
   return (
     <>
       <Logo />
-      <Filtro placeholder="Filtrar hospedagem"/>
+      <Search type="search" name="filtrar" placeholder="Filtrar hospedagem" />
+      
       <HospedagemContainer>
         <Text>Hospedagens em CIDADE:</Text>
-        <CardHospedagem />
+        <Bloco>
+        {hospedagem.map((item) => (
+            <CardHospedagem
+              key={item.id}
+              nome={item.nome}
+              preco={item.preco}
+            />
+          ))}
+        </Bloco>
       </HospedagemContainer>
     </>
   );
 };
+
+const Bloco = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+`;
+
+const Search = styled.input`
+  width: 100%;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 const HospedagemContainer = styled.div`
   display: "flex";
@@ -22,8 +64,6 @@ const HospedagemContainer = styled.div`
   color: #fff;
   margin-bottom: 10px;
 `;
-
-
 
 const Text = styled.p`
   font-family: "Saira Stencil One", cursive;

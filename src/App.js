@@ -14,7 +14,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/passagens" element={<PassagemPage />} />
           <Route path="/detalhe-passagem" element={<DetalhePassagemPage />} />
-          <Route path="/hospedagem" element={<HospedagemPage />} />
+          <Route path="/hospedagens" element={<HospedagemPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>

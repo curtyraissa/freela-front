@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
-import Logo from "../components/Logo";
 import Passo from "../components/Passo";
 import { useNavigate } from "react-router-dom";
 
