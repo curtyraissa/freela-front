@@ -1,42 +1,50 @@
 import styled from "styled-components";
 
-export default function DetalhePassagem() {
+export default function DetalhePassagem({
+  preco,
+  cia_aerea,
+  data,
+  horario_saida,
+  horario_chegada,
+  cidade_origem,
+  cidade_destino,
+}) {
+
   return (
     <>
-      <Title>Detalhe da Passagem:</Title>
       <DetalhePassagemContainer>
         <Bloco>
+          <p>Data: </p>
+          <Text>{data}</Text>
+        </Bloco>
+        <Bloco>
           <p>Cidade de Destino: </p>
-          <Text>CIDADE</Text>
+          <Text>{cidade_destino}</Text>
         </Bloco>
         <Bloco>
           <p>Cidade de Origem: </p>
-          <Text>CIDADE</Text>
+          <Text>{cidade_origem}</Text>
         </Bloco>
         <Bloco>
           <p>Companhia Aérea: </p>
-          <Text>NOME</Text>
+          <Text>{cia_aerea}</Text>
+        </Bloco>
+        <Bloco>
+          <p>Horário Previsto de Saída: </p>
+          <Text>{horario_saida}</Text>
         </Bloco>
         <Bloco>
           <p>Horário Previsto de Chegada: </p>
-          <Text>HORA</Text>
+          <Text>{horario_chegada}</Text>
         </Bloco>
         <Bloco>
           <p>Preço da Passagem: </p>
-          <Text>PREÇO</Text>
+          <Text>{preco}</Text>
         </Bloco>
       </DetalhePassagemContainer>
     </>
   );
 }
-
-const Title = styled.p`
-  font-family: "Saira Stencil One", cursive;
-  font-weight: 400;
-  font-size: 20px;
-  color: white;
-  margin-bottom: 10px;
-`;
 
 const Bloco = styled.div`
   display: flex;
