@@ -30,7 +30,6 @@ export const HomePage = () => {
 
   return (
     <>
-      <Logo />
       <HomeContainer>
         <form onSubmit={submitForm}>
           <Label>Selecione a sua cidade de destino:</Label>
@@ -73,7 +72,6 @@ const Select = styled.select`
   color: gray;
   :focus {
     border: 2px solid #ffb6b6;
-    margin: 0px;
   }
   option {
     color: black;

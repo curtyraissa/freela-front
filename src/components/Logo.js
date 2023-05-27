@@ -8,6 +8,5 @@ const Text = styled.h1`
   font-family: "Saira Stencil One", cursive;
   font-weight: 400;
   font-size: 30px;
-  position: fixed;
-  top: 125px;
+  height: 100px;
 `;
