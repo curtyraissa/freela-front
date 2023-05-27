@@ -6,13 +6,20 @@ import axios from "axios";
 
 export const PassagemPage = () => {
   const [passagem, setPassagem] = useState([]);
-  const [filtro, setFiltro] = useState("");
-  
-  const filtragem = passagem.filter((p) => p.preco.toString().includes(filtro));
+  const [minPreco, setMinPreco] = useState("");
+  const [maxPreco, setMaxPreco] = useState("");
+
+  const filtragem = passagem.filter((p) => {
+    const preco = parseFloat(p.preco);
+    const min = minPreco ? parseFloat(minPreco) : Number.MIN_VALUE;
+    const max = maxPreco ? parseFloat(maxPreco) : Number.MAX_VALUE;
+    return preco >= min && preco <= max;
+  });
 
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/passagens/cidade/1`)
+      // TODO - puxar o id de forma dinamica
       .then((res) => {
         setPassagem(res.data);
         console.log(res.data);
@@ -25,15 +32,27 @@ export const PassagemPage = () => {
   return (
     <>
       <Logo />
+      <Filtro>
+
       <Search
         type="search"
-        name="filtrar"
-        placeholder="Filtrar passagem"
-        value={filtro}
-        onChange={(e) => setFiltro(e.target.value)}
+        name="minPreco"
+        placeholder="Preço mínimo"
+        value={minPreco}
+        onChange={(e) => setMinPreco(e.target.value)}
       />
+      <Search
+        type="search"
+        name="maxPreco"
+        placeholder="Preço máximo"
+        value={maxPreco}
+        onChange={(e) => setMaxPreco(e.target.value)}
+      />
+      </Filtro>
+
       <PassagemContainer>
         <Text>Passagens para CIDADE:</Text>
+        {/* TODO - puxar a cidade pelo id de forma dinamica */}
         <Bloco>
           {filtragem.map((item) => (
             <Card
@@ -49,6 +68,12 @@ export const PassagemPage = () => {
     </>
   );
 };
+
+const Filtro = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 20px
+`;
 
 const Bloco = styled.div`
   display: flex;
