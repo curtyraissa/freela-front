@@ -3,9 +3,12 @@ import styled from "styled-components";
 import axios from "axios";
 import Logo from "../components/Logo";
 import Passo from "../components/Passo";
+import { useNavigate } from "react-router-dom";
 
 export const HomePage = () => {
   const [cidade, setCidade] = useState([]);
+  const [form, setForm] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -19,11 +22,17 @@ export const HomePage = () => {
       });
   }, []);
 
+  function submitForm(e) {
+    e.preventDefault();
+    setForm(e.target.value);
+    navigate("/passagens?cidade=" + encodeURIComponent(form));
+  }
+
   return (
     <>
       <Logo />
       <HomeContainer>
-        <form>
+        <form onSubmit={submitForm}>
           <Label>Selecione a sua cidade de destino:</Label>
           <Select>
             <option value="">Selecione uma cidade</option>
