@@ -4,7 +4,6 @@ export default function Card({data, horario, preco, localPartida}) {
   return (
     <>
       <CardContainer>
-        
         <Bloco>
           <p>Data: {data}</p>
           <p>Horário: {horario}</p>

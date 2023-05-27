@@ -1,18 +1,18 @@
 import styled from "styled-components";
 
-export default function CardHospedagem() {
+export default function CardHospedagem({nome, preco}) {
   return (
     <>
       <CardHospedagemContainer>
-        
         <Bloco>
-          <p>Nome do Hotel</p>
-          <Text>PREÇO</Text>
+          <p>Nome do Hotel: {nome}</p>
+          <Text>PREÇO: {preco}</Text>
         </Bloco>
       </CardHospedagemContainer>
     </>
   );
 }
+
 const Bloco = styled.div`
   display: flex;
   flex-direction: column;
