@@ -60,6 +60,7 @@ export const HospedagemPage = () => {
               nome={item.nome}
               preco={item.preco}
             />
+            // TODO - Adicionar um onClick ir detalhe
           ))}
         </Bloco>
       </HospedagemContainer>
@@ -101,5 +102,5 @@ const Text = styled.p`
   font-weight: 400;
   font-size: 20px;
   color: white;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
 `;

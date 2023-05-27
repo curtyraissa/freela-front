@@ -19,7 +19,7 @@ export const PassagemPage = () => {
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/passagens/cidade/1`)
-      // TODO - puxar o id de forma dinamica
+      // TODO - puxar o id de forma dinamica - :cidade_id
       .then((res) => {
         setPassagem(res.data);
         console.log(res.data);
@@ -33,21 +33,20 @@ export const PassagemPage = () => {
     <>
       <Logo />
       <Filtro>
-
-      <Search
-        type="search"
-        name="minPreco"
-        placeholder="Preço mínimo"
-        value={minPreco}
-        onChange={(e) => setMinPreco(e.target.value)}
-      />
-      <Search
-        type="search"
-        name="maxPreco"
-        placeholder="Preço máximo"
-        value={maxPreco}
-        onChange={(e) => setMaxPreco(e.target.value)}
-      />
+        <Search
+          type="search"
+          name="minPreco"
+          placeholder="Preço mínimo"
+          value={minPreco}
+          onChange={(e) => setMinPreco(e.target.value)}
+        />
+        <Search
+          type="search"
+          name="maxPreco"
+          placeholder="Preço máximo"
+          value={maxPreco}
+          onChange={(e) => setMaxPreco(e.target.value)}
+        />
       </Filtro>
 
       <PassagemContainer>
@@ -62,6 +61,7 @@ export const PassagemPage = () => {
               preco={item.preco}
               localPartida={item.localPartida}
             />
+            // TODO - Adicionar um onClick ir detalhe
           ))}
         </Bloco>
       </PassagemContainer>
@@ -72,7 +72,7 @@ export const PassagemPage = () => {
 const Filtro = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 20px
+  gap: 20px;
 `;
 
 const Bloco = styled.div`
