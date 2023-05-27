@@ -1,14 +1,15 @@
 import styled from "styled-components";
 
-export default function Card() {
+export default function Card({data, horario, preco, localPartida}) {
   return (
     <>
       <CardContainer>
         
         <Bloco>
-          <p>Data e Horário</p>
-          <Text>PREÇO</Text>
-          <p>Local de Partida</p>
+          <p>Data: {data}</p>
+          <p>Horário: {horario}</p>
+          <Text>PREÇO: {preco}</Text>
+          <p>Local de Partida: {localPartida}</p>
         </Bloco>
       </CardContainer>
     </>
