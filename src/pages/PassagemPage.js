@@ -7,11 +7,11 @@ import axios from "axios";
 export const PassagemPage = () => {
   const [passagem, setPassagem] = useState([]);
   const [filtro, setFiltro] = useState("");
-  // const filtros = passagem.filter((item))
+  
+  const filtragem = passagem.filter((p) => p.preco.toString().includes(filtro));
 
   useEffect(() => {
     axios
-      // .get(`${process.env.REACT_APP_API_URL}/passagens/cidade/:cidade_id`)
       .get(`${process.env.REACT_APP_API_URL}/passagens/cidade/1`)
       .then((res) => {
         setPassagem(res.data);
@@ -35,7 +35,7 @@ export const PassagemPage = () => {
       <PassagemContainer>
         <Text>Passagens para CIDADE:</Text>
         <Bloco>
-          {passagem.map((item) => (
+          {filtragem.map((item) => (
             <Card
               key={item.id}
               data={item.data}
@@ -68,7 +68,6 @@ const Search = styled.input`
 `;
 
 const PassagemContainer = styled.div`
-  display: "flex";
   width: 100%;
   color: #fff;
   margin-bottom: 10px;
