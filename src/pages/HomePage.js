@@ -1,30 +1,34 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import Passo from "../components/Passo";
 import { useNavigate } from "react-router-dom";
+import CidadeContext from "../contexts/CidadeContext";
 
 export const HomePage = () => {
-  const [cidade, setCidade] = useState([]);
   const [form, setForm] = useState("");
   const navigate = useNavigate();
 
+  const { cidade, setCidade } = useContext(CidadeContext);
+  
   useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/cidades`)
-      .then((res) => {
-        setCidade(res.data);
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err.response.data);
-      });
-  }, []);
+    async function fetchCidades() {
+      try {
+        const response = await axios.get(
+          `${process.env.REACT_APP_API_URL}/cidades`
+        );
+        setCidade(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.log(error.response.data);
+      }
+    }
+    fetchCidades();
+  }, [setCidade]);
 
   function submitForm(e) {
     e.preventDefault();
-    setForm(e.target.value);
-    navigate("/passagens?cidade=" + encodeURIComponent(form));
+    navigate(`/passagens/cidade/${encodeURIComponent(form)}`);
   }
 
   return (
@@ -32,10 +36,10 @@ export const HomePage = () => {
       <HomeContainer>
         <form onSubmit={submitForm}>
           <Label>Selecione a sua cidade de destino:</Label>
-          <Select>
+          <Select onChange={(e) => setForm(e.target.value)} value={form}>
             <option value="">Selecione uma cidade</option>
-            {cidade.map((item) => (
-              <option key={item.id} value={item.nome}>
+            {cidade?.map((item) => (
+              <option key={item.id} value={item.id}>
                 {item.nome}
               </option>
             ))}
@@ -49,7 +53,7 @@ export const HomePage = () => {
 };
 
 const HomeContainer = styled.div`
-  display: "flex";
+  display: flex;
   width: 100%;
 `;
 
