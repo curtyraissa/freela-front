@@ -6,20 +6,27 @@ import { PassagemPage } from "./pages/PassagemPage";
 import { HospedagemPage } from "./pages/HospedagemPage";
 import { DetalhePassagemPage } from "./pages/DetalhePassagemPage";
 import { DetalheHospedagemPage } from "./pages/DetalheHospedagemPage";
+import CidadeContext from "./contexts/CidadeContext";
+import { useState } from "react";
 
 export default function App() {
+  // const [cidade, setCidade] = useState(localStorage.getItem("cidade"));
+  const [cidade, setCidade] = useState(JSON.parse(localStorage.getItem("cidade")));
+
   return (
     <PagesContainer>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/passagens" element={<PassagemPage />} />
-          <Route path="/passagens/:id" element={<DetalhePassagemPage />} />
-          <Route path="/hospedagens" element={<HospedagemPage />} />
-          <Route path="/hospedagens/:id" element={<DetalheHospedagemPage />} />
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
-      </BrowserRouter>
+      <CidadeContext.Provider value={{ cidade, setCidade }}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/passagens" element={<PassagemPage />} />
+            <Route path="/passagens/:id" element={<DetalhePassagemPage />} />
+            <Route path="/hospedagens" element={<HospedagemPage />} />
+            <Route path="/hospedagens/:id" element={<DetalheHospedagemPage />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        </BrowserRouter>
+      </CidadeContext.Provider>
     </PagesContainer>
   );
 }
