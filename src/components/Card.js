@@ -8,7 +8,7 @@ export default function Card({data, horario, preco, localPartida}) {
           <p>Data: {data}</p>
           <p>Horário: {horario}</p>
           <Text>PREÇO: {preco}</Text>
-          <p>Local de Partida: {localPartida}</p>
+          <p>Destino: {localPartida}</p>
         </Bloco>
       </CardContainer>
     </>
