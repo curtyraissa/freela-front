@@ -15,18 +15,18 @@ export default function App() {
 
   return (
     <PagesContainer>
-      <CidadeContext.Provider value={{ cidade, setCidade }}>
+     <CidadeContext.Provider value={{cidade, setCidade}}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/passagens" element={<PassagemPage />} />
+            <Route path="/passagens/cidade/:id" element={<PassagemPage />} />
             <Route path="/passagens/:id" element={<DetalhePassagemPage />} />
-            <Route path="/hospedagens" element={<HospedagemPage />} />
+            <Route path="/hospedagens/cidade/:id" element={<HospedagemPage />} />
             <Route path="/hospedagens/:id" element={<DetalheHospedagemPage />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </BrowserRouter>
-      </CidadeContext.Provider>
+        </CidadeContext.Provider> 
     </PagesContainer>
   );
 }
