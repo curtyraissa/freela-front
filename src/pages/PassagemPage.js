@@ -3,8 +3,10 @@ import Logo from "../components/Logo";
 import Card from "../components/Card";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link, useParams } from "react-router-dom";
 
 export const PassagemPage = () => {
+  const { id } = useParams();
   const [passagem, setPassagem] = useState([]);
   const [minPreco, setMinPreco] = useState("");
   const [maxPreco, setMaxPreco] = useState("");
@@ -18,8 +20,7 @@ export const PassagemPage = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_URL}/passagens/cidade/1`)
-      // TODO - puxar o id de forma dinamica - :cidade_id
+      .get(`${process.env.REACT_APP_API_URL}/passagens/cidade/${id}`)
       .then((res) => {
         setPassagem(res.data);
         console.log(res.data);
@@ -27,7 +28,7 @@ export const PassagemPage = () => {
       .catch((err) => {
         console.log(err.response.data);
       });
-  }, []);
+  }, [id]);
 
   return (
     <>
@@ -51,17 +52,17 @@ export const PassagemPage = () => {
 
       <PassagemContainer>
         <Text>Passagens para CIDADE:</Text>
-        {/* TODO - puxar a cidade pelo id de forma dinamica */}
         <Bloco>
           {filtragem.map((item) => (
-            <Card
-              key={item.id}
-              data={item.data}
-              horario={item.horario}
-              preco={item.preco}
-              localPartida={item.localPartida}
-            />
-            // TODO - Adicionar um onClick ir detalhe
+            <Link to={`/passagens/${item.id}`} key={item.id}>
+              <Card
+                key={item.id}
+                data={item.data}
+                horario={item.horario}
+                preco={item.preco}
+                localPartida={item.localPartida}
+              />
+            </Link>
           ))}
         </Bloco>
       </PassagemContainer>

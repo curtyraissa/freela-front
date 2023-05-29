@@ -3,14 +3,15 @@ import DetalheCidade from "../components/DetalhePassagem";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link, useParams } from "react-router-dom";
 
 export const DetalhePassagemPage = () => {
   const [detalhePassagem, setDetalhePassagem] = useState([]);
+  const { id } = useParams(); 
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_URL}/passagens/3`)
-      // TODO - puxar o id de forma dinamica - :id
+      .get(`${process.env.REACT_APP_API_URL}/passagens/${id}`)
       .then((res) => {
         setDetalhePassagem(res.data);
         console.log(res.data);
@@ -18,12 +19,13 @@ export const DetalhePassagemPage = () => {
       .catch((err) => {
         console.log(err.response.data);
       });
-  }, []);
+  }, [id]);
 
   return (
     <>
       <Logo />
       <Text>Detalhe da passagem selecionada:</Text>
+      <Link  to={`/hospedagens/cidade/${id}`}>
       <DetalheCidade
         preco={detalhePassagem.preco}
         cia_aerea={detalhePassagem.cia_aerea}
@@ -33,6 +35,7 @@ export const DetalhePassagemPage = () => {
         cidade_destino={detalhePassagem.cidade_destino}
         cidade_origem={detalhePassagem.cidade_origem}
       />
+      </Link>
     </>
   );
 };
