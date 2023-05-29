@@ -3,7 +3,7 @@ import axios from "axios";
 import DetalheHospedagem from "../components/DetalheHospedagem";
 import Logo from "../components/Logo";
 import styled from "styled-components";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export const DetalheHospedagemPage = () => {
   const [detalheHospedagem, setDetalheHospedagem] = useState([]);
@@ -33,6 +33,9 @@ export const DetalheHospedagemPage = () => {
         cafe_da_manha_texto={detalheHospedagem.cafe_da_manha_texto}
         estacionamento_texto={detalheHospedagem.estacionamento_texto}
       />
+      <Link  to={`/`}>
+      <Button>Voltar para Home!</Button>
+      </Link>
     </>
   );
 };
@@ -43,4 +46,9 @@ const Text = styled.p`
   font-size: 20px;
   color: white;
   margin-bottom: 14px;
+`;
+
+const Button = styled.button`
+  width: 100%;
+  margin-top: 50px;
 `;

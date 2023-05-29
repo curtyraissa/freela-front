@@ -73,13 +73,13 @@ export const PassagemPage = () => {
 const Filtro = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: 14px;
 `;
 
 const Bloco = styled.div`
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 14px;
   @media (max-width: 600px) {
     flex-direction: column;
   }

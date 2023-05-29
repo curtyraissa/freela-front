@@ -44,7 +44,7 @@ const GlobalStyle = createGlobalStyle`
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 15px;
+        gap: 14px;
         width: 100%;
         border-radius: 5px;
     }
@@ -54,7 +54,6 @@ const GlobalStyle = createGlobalStyle`
         line-height: 18px;
         color: black;
         text-decoration: none;
-        padding-top: 30px;
     }
 `
 

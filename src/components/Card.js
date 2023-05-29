@@ -19,7 +19,7 @@ const Bloco = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  gap: 14px;
   color: black;
 `;
 
@@ -35,7 +35,7 @@ const CardContainer = styled.div`
   font-weight: 400;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 14px;
   background-color: white;
   border-radius: 5px;
   padding: 20px;

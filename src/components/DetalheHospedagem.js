@@ -44,7 +44,7 @@ const Bloco = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  gap: 20px;
+  gap: 14px;
 `;
 
 const Text = styled.p`
@@ -59,7 +59,7 @@ const DetalheHospedagemContainer = styled.div`
   font-weight: 400;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 14px;
   background-color: white;
   border-radius: 5px;
   padding: 20px;

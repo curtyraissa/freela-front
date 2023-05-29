@@ -36,6 +36,10 @@ export const DetalhePassagemPage = () => {
         cidade_origem={detalhePassagem.cidade_origem}
       />
       </Link>
+      <Link  to={`/hospedagens/cidade/${id}`}>
+      <Button>Hospedagens disponíveis</Button>
+      </Link>
+      
     </>
   );
 };
@@ -46,4 +50,9 @@ const Text = styled.p`
   font-size: 20px;
   color: white;
   margin-bottom: 14px;
+`;
+
+const Button = styled.button`
+  width: 100%;
+  margin-top: 50px;
 `;

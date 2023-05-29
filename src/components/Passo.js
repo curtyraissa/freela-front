@@ -29,7 +29,7 @@ const PassoContainer = styled.div`
   font-weight: 400;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 14px;
   background-color: white;
   border-radius: 5px;
   padding: 20px;
