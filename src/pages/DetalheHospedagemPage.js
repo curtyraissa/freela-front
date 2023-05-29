@@ -3,14 +3,16 @@ import axios from "axios";
 import DetalheHospedagem from "../components/DetalheHospedagem";
 import Logo from "../components/Logo";
 import styled from "styled-components";
+import { useParams } from "react-router-dom";
 
 export const DetalheHospedagemPage = () => {
   const [detalheHospedagem, setDetalheHospedagem] = useState([]);
 
+  const { id } = useParams(); 
+
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_URL}/hospedagens/3`)
-      // TODO - puxar o id de forma dinamica - :id
+      .get(`${process.env.REACT_APP_API_URL}/hospedagens/${id}`)
       .then((res) => {
         setDetalheHospedagem(res.data);
         console.log(res.data);

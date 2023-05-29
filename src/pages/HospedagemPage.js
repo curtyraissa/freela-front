@@ -3,6 +3,7 @@ import Logo from "../components/Logo";
 import CardHospedagem from "../components/CardHospedagem";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link, useParams } from "react-router-dom";
 
 export const HospedagemPage = () => {
   const [hospedagem, setHospedagem] = useState([]);
@@ -16,11 +17,11 @@ export const HospedagemPage = () => {
     return preco >= min && preco <= max;
   });
   
+  const { id } = useParams(); 
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_URL}/hospedagens/cidade/1`)
-      // TODO - puxar o id de forma dinamica - :cidade_id
+      .get(`${process.env.REACT_APP_API_URL}/hospedagens/cidade/${id}`)
       .then((res) => {
         setHospedagem(res.data);
         console.log(res.data);
@@ -52,15 +53,15 @@ export const HospedagemPage = () => {
 
       <HospedagemContainer>
         <Text>Hospedagens em CIDADE:</Text>
-        {/* TODO - puxar a cidade pelo id de forma dinamica */}
         <Bloco>
         {filtragem.map((item) => (
+           <Link to={`/hospedagens/${item.id}`} key={item.id}>
             <CardHospedagem
               key={item.id}
               nome={item.nome}
               preco={item.preco}
             />
-            // TODO - Adicionar um onClick ir detalhe
+          </Link> 
           ))}
         </Bloco>
       </HospedagemContainer>
